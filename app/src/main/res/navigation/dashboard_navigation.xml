@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.decagonhq.clads_client.presentation.ui.HomeFragment"
+        android:label=""
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_artisanProfileFragment"
+            app:destination="@id/artisanProfileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mediaFragment"
+        android:name="com.decagonhq.clads_client.presentation.ui.MediaFragment"
+        android:label="Photo Gallery"
+        tools:layout="@layout/fragment_media" >
+        <action
+            android:id="@+id/action_mediaFragment_to_homeFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.decagonhq.clads_client.presentation.ui.MessageFragment"
+        android:label="Messages"
+        tools:layout="@layout/fragment_message" />
+    <fragment
+        android:id="@+id/mediaCaptionFragment"
+        android:name="com.decagonhq.clads_client.presentation.ui.MediaCaptionFragment"
+        android:label="Captions"
+        tools:layout="@layout/fragment_media_middle" />
+    <fragment
+        android:id="@+id/mediaDetailsFragment"
+        android:name="com.decagonhq.clads_client.presentation.ui.MediaDetailsFragment"
+        android:label="Photo Gallery"
+        tools:layout="@layout/fragment_media_details" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.decagonhq.clads_client.presentation.ui.EditProfileFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/ratingFragment"
+        android:name="com.decagonhq.clads_client.presentation.ui.RatingFragment"
+        android:label="fragment_rating"
+        tools:layout="@layout/fragment_rating">
+        <argument
+            android:name="tailor"
+            app:argType="com.decagonhq.clads_client.data.model.Tailor" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favouritesFragment"
+        android:name="com.decagonhq.clads_client.presentation.ui.FavouritesFragment"
+        android:label="Favorites"
+        tools:layout="@layout/fragment_favourites" >
+        <action
+            android:id="@+id/action_favouritesFragment_to_artisanProfileFragment"
+            app:destination="@id/artisanProfileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/artisanProfileFragment"
+        android:name="com.decagonhq.clads_client.presentation.ui.ArtisanProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_artisan_profile" >
+        <argument
+            android:name="tailor"
+            app:argType="com.decagonhq.clads_client.data.model.Tailor" />
+        <action
+            android:id="@+id/action_artisanProfileFragment_to_ratingFragment"
+            app:destination="@id/ratingFragment" />
+    </fragment>
+
+</navigation>
